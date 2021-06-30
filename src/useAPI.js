@@ -9,7 +9,7 @@ export default function useAPI( pageNumber ) {
   
   useEffect(() => {
     setContents([]);
-  }, [pageNumber]);
+  }, []);
 
   useEffect(() => {
     setLoading(true);
