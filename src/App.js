@@ -4,7 +4,8 @@ import useAPI from "./useAPI";
 function App() {
   const { loading, error, contents } = useAPI();
   console.log("contents");
-  console.log(contents);
+  console.log(loading);
+  console.log(error);
   return (
     <div className="App">
       {contents.map((c) => {
@@ -17,6 +18,8 @@ function App() {
           </div>
         );
       })}
+      <div>{loading && 'Loading Data...'}</div>
+      <div>{error && 'Error\'s happened'}</div>
     </div>
   );
 }

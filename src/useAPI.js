@@ -22,6 +22,7 @@ export default function useAPI( pageNumber ) {
     }).catch(e => {
       console.log(`${e} 가 발생했습니다.`);
       setError(true);
+      setLoading(false);
     })
   }, [pageNumber]);
   return { loading, error, contents};
