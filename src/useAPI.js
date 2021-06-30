@@ -6,6 +6,10 @@ export default function useAPI( pageNumber ) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [contents, setContents] = useState([]);
+  
+  useEffect(() => {
+    setContents([]);
+  }, [pageNumber]);
 
   useEffect(() => {
     setLoading(true);
