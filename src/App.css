@@ -28,3 +28,30 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
 }
+
+.postSearch {
+  width:100%;
+  text-align: center;
+}
+
+.postSearch div:first-child {
+  font-size:40px;
+  font-weight:bold;
+  padding:20px;
+}
+
+.postSearch div:nth-child(2){
+  font-size:20px;
+  padding:10px;
+}
+
+.postSearch div:last-child {
+  width:100%;
+  margin-bottom:2rem;
+}
+
+.postSearch div:last-child input {
+  width: 70%;
+  height:3rem;
+
+}
