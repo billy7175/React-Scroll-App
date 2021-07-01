@@ -6,6 +6,7 @@ export default function useAPI( pageNumber ) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [contents, setContents] = useState([]);
+  const [hasMore, setHasMore] = useState(false);
   
   useEffect(() => {
     setContents([]);
@@ -22,6 +23,8 @@ export default function useAPI( pageNumber ) {
       setContents(prev => {
         return [...prev, ...res.data];
       })
+      // true when existing data
+      setHasMore(res.data.length > 0);
       setLoading(false);
     }).catch(e => {
       console.log(`${e} 가 발생했습니다.`);
@@ -29,5 +32,5 @@ export default function useAPI( pageNumber ) {
       setLoading(false);
     })
   }, [pageNumber]);
-  return { loading, error, contents};
+  return { loading, error, contents, hasMore};
 }

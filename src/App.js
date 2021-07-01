@@ -3,23 +3,25 @@ import useAPI from "./useAPI";
 
 function App() {
   const [pageNumber, setPageNumber] = useState(0);
-  const { loading, error, contents } = useAPI(pageNumber);
+  const { loading, error, contents, hasMore } = useAPI(pageNumber);
   const observer = useRef();
+  console.log("loading", loading)
+  console.log("error", error);
+  console.log("contents", contents);
+  console.log("hasMore", hasMore)
   const lastPostElement = useCallback(ele => {
     if(loading) return;
     if(observer.current) observer.current.disconnect();
     observer.current = new IntersectionObserver(entries =>{
-      if(entries[0].isIntersecting){
+      if(entries[0].isIntersecting && hasMore){
         setPageNumber(prev => prev+1);
         console.log('reached')
         console.log(contents)
       }
     })
     if(ele) observer.current.observe(ele);
-  },[loading]);
-  console.log("contents");
-  console.log(loading);
-  console.log(error);
+  },[loading, hasMore]);
+
   return (
     <div className="App">
       {contents.map((c, index) => {
