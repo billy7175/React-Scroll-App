@@ -7,10 +7,6 @@ export default function GetDetailAPI() {
   const [postDetail, setPostDetail] = useState({});
   const id = useParams().id;
   console.log(id);
-
-  
-  
-
   useEffect(() => {
     axios({
       method:'GET',

@@ -7,7 +7,7 @@ import getDetailAPI from '../API/GetDetailAPI';
 export default function postDetail() {
   
   const { postDetail } = getDetailAPI();
-  const {title, content} = postDetail;
+  const { title, content } = postDetail;
   
   const dummy = {
     title:'this is a dummy title',

@@ -53,5 +53,8 @@
 .postSearch div:last-child input {
   width: 70%;
   height:3rem;
+}
 
+.active {
+  color:red;
 }

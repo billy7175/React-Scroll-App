@@ -7,23 +7,41 @@ import PostDetail from "./components/postDetail";
 function App() {
   const [pageNumber, setPageNumber] = useState(0);
   const [searchWords, setSearchWords] = useState("");
-  const { loading, error, contents, hasMore } = useAPI(pageNumber);
+  const [type, setType] = useState("a");
+  const { loading, error, contents, hasMore } = useAPI(type, pageNumber);
   const observer = useRef();
   const lastPostElement = useCallback(
     (ele) => {
       // if (loading) return;
+      console.log("observer", observer);
+      console.log("observer.current", observer.current)
       if (observer.current) observer.current.disconnect();
+      console.log("after disconnect", observer);
+      console.log("after disconncet", observer.current);
       observer.current = new IntersectionObserver((entries) => {
+        console.log("after instance", observer);
+        console.log("after instance", observer.current)
         if (entries[0].isIntersecting && hasMore) {
           setPageNumber((prev) => prev + 1);
           console.log("reached");
           console.log(contents);
         }
       });
-      if (ele) observer.current.observe(ele);
+      if (ele){
+        console.log(ele);
+        observer.current.observe(ele)
+      };
     },
     [hasMore]
   );
+
+  function handleTabA(){
+    setType("a");
+  }
+
+  function handleTabB(){
+    setType("b");
+  }
 
   return (
     <div className="App">
@@ -48,7 +66,12 @@ function App() {
               />
             </div>
           </div>
+          <div>
+            <a onClick={handleTabA} className={type === "a" ? "active" : ""}>postA</a>
+            <a onClick={handleTabB} className={type === "b" ? "active" : ""}>postB</a>
+          </div>
           <div className="postList">
+            
             {contents
               .filter((c) => {
                 if (searchWords == "") {
@@ -74,6 +97,7 @@ function App() {
                     <div key={c.id}>
                       <Link to={`/postDetail/${c.id}`}>
                         <span>{c.id}. </span>
+                        <span>{c.type}</span>
                         <span>{c.title}</span>
                         <div>{c.content}</div>
                       </Link>
