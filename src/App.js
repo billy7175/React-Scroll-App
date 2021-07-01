@@ -1,6 +1,8 @@
 import { useState, useRef, useCallback } from "react";
 import useAPI from "./useAPI";
 import "./App.css";
+import {Switch, Route} from 'react-router-dom';
+import PostDetail from './components/postDetail';
 
 function App() {
   const [pageNumber, setPageNumber] = useState(0);
@@ -27,7 +29,13 @@ function App() {
 
   return (
     <div className="App">
-      <div className="postSearch">
+      <div className="common">I'm a common sense.</div>
+      <Switch>
+        <Route path="/postDetail">
+          <PostDetail />
+        </Route>
+        <Route path="/">
+        <div className="postSearch">
         <div>REACT-SCROLL-APP(개발 과제)</div>
         <div>게시물을 검색해세요</div>
         <div>
@@ -67,6 +75,10 @@ function App() {
       </div>
       <div>{loading && "Loading Data..."}</div>
       <div>{error && "Error's happened"}</div>
+        </Route>
+      </Switch>
+      
+      
     </div>
   );
 }
