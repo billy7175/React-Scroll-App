@@ -2,13 +2,13 @@ import { useState, useRef, useCallback } from "react";
 import useAPI from "./API/useAPI";
 import "./App.css";
 import { Switch, Route, Link } from "react-router-dom";
-import PostDetail from "./components/postDetail";
+import PostDetail from "./components/PostDetail";
 
 function App() {
   const [pageNumber, setPageNumber] = useState(0);
-  const [searchWords, setSearchWords] = useState("");
+  const [query, setQuery] = useState("");
   const [type, setType] = useState("a");
-  const { loading, error, contents, hasMore } = useAPI(type, pageNumber);
+  const { loading, error, contents, hasMore } = useAPI(type, pageNumber, query);
   const observer = useRef();
   const lastPostElement = useCallback(
     (ele) => {
@@ -47,8 +47,8 @@ function App() {
     <div className="App">
       <div className="common">I'm a common sense.</div>
       <Switch>
-        <Route path="/postDetail/:id">
-          <PostDetail />
+        <Route path="/PostDetail/:id">
+          <PostDetail type={type} />
         </Route>
         <Route path="/">
           <div className="postSearch">
@@ -57,11 +57,12 @@ function App() {
             <div>
               <input
                 onChange={(e) => {
-                  setSearchWords(e.target.value);
+                  setQuery(e.target.value);
                   console.log(e.target.value);
                 }}
-                value={searchWords}
+                value={query}
                 type="text"
+                
                 placeholder="검색어를 입력해주세요."
               />
             </div>
@@ -73,15 +74,15 @@ function App() {
           <div className="postList">
             
             {contents
-              .filter((c) => {
-                if (searchWords == "") {
-                  return c;
-                } else if (
-                  c.title.toLowerCase().includes(searchWords.toLowerCase())
-                ) {
-                  return c;
-                }
-              })
+              // .filter((c) => {
+              //   if (query == "") {
+              //     return c;
+              //   } else if (
+              //     c.title.toLowerCase().includes(query.toLowerCase())
+              //   ) {
+              //     return c;
+              //   }
+              // })
               .map((c, index) => {
                 // c = content
                 if (contents.length === index + 1) {
@@ -95,7 +96,7 @@ function App() {
                 } else {
                   return (
                     <div key={c.id}>
-                      <Link to={`/postDetail/${c.id}`}>
+                      <Link to={`/PostDetail/${c.id}`}>
                         <span>{c.id}. </span>
                         <span>{c.type}</span>
                         <span>{c.title}</span>

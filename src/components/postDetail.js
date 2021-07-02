@@ -1,12 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import getDetailAPI from '../API/GetDetailAPI';
+import GetDetailAPI from '../API/GetDetailAPI';
 
 
 
-export default function postDetail() {
-  
-  const { postDetail } = getDetailAPI();
+export default function PostDetail(props) {
+  const { postDetail } = GetDetailAPI(props.type);
   const { title, content } = postDetail;
   
   const dummy = {
