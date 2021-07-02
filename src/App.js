@@ -87,7 +87,7 @@ function App() {
                 // c = content
                 if (contents.length === index + 1) {
                   return (
-                    <div key={c.id} ref={lastPostElement}>
+                    <div className="post" key={c.id} ref={lastPostElement}>
                       <span>{c.id}. </span>
                       <span>{c.title}</span>
                       <div>{c.content}</div>
@@ -95,12 +95,11 @@ function App() {
                   );
                 } else {
                   return (
-                    <div key={c.id}>
+                    <div className="post" key={c.id}>
                       <Link to={`/PostDetail/${c.id}`}>
-                        <span>{c.id}. </span>
-                        <span>{c.type}</span>
-                        <span>{c.title}</span>
-                        <div>{c.content}</div>
+                        <span className="post-id">{c.id}. </span>
+                        <span className="post-title">{c.title}</span>
+                        <div class="post-content">{c.content}</div>
                       </Link>
                     </div>
                   );

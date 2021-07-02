@@ -1,3 +1,8 @@
+a {
+  color:inherit;
+  text-decoration: none;
+}
+
 .app {
   width: 1000px;
   max-width: 100%;
@@ -8,6 +13,7 @@
 .postList {
   border: 2px solid rgba(0, 0, 0, 0.1);
   border-radius: 1rem;
+  padding:1rem;
 }
 
 .postList > div {
@@ -16,17 +22,28 @@
 
 .postList > div > span:first-child {
   color: #3b82f6;
+  font-size:20px;
 }
 
 .postList > div > span:nth-child(2) {
   font-weight: 500;
 }
 
-.postList > div > div {
+.postList .post-id {
+  color:#3b82f6;
+  font-weight:500;
+}
+
+.postList .post-title {
+  font-weight:500;
+}
+
+.postList .post-content  {
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
+  margin-top:0.25rem;
 }
 
 .postSearch {
@@ -66,6 +83,7 @@
   padding:1rem;
   font-weight: 500;
   border-radius: 5px;
+  text-decoration: none;
  
 }
 
@@ -78,4 +96,9 @@
 .active {
   color:#3b82f6;
   /* color:#3bf2f6; */
+}
+
+
+.post:hover {
+  background:rgba(0,0,0,.1);
 }
