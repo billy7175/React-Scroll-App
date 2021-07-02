@@ -55,6 +55,27 @@
   height:3rem;
 }
 
+.tabs {
+  font-size:20px;
+  border-bottom:1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom:0.35rem;
+}
+
+.tabs a {
+  display:inline-block;
+  padding:1rem;
+  font-weight: 500;
+  border-radius: 5px;
+ 
+}
+
+.tabs a:hover {
+  background-color:rgba(0, 0, 0, 0.1);
+  color:rgba(59,130,246,0.5);
+}
+
+
 .active {
-  color:red;
+  color:#3b82f6;
+  /* color:#3bf2f6; */
 }

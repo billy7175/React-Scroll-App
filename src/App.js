@@ -67,7 +67,7 @@ function App() {
               />
             </div>
           </div>
-          <div>
+          <div className="tabs">
             <a onClick={handleTabA} className={type === "a" ? "active" : ""}>postA</a>
             <a onClick={handleTabB} className={type === "b" ? "active" : ""}>postB</a>
           </div>
