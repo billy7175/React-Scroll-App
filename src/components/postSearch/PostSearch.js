@@ -8,7 +8,7 @@ import SearchIcon from "./SearchIcon";
 export default function PostSearch({ query, setQuery }) {
   return (
     <Div className="postSearch">
-      <div>REACT-SCROLL-APP(개발 과제)</div>
+      <h1>REACT-SCROLL-APP(개발 과제)</h1>
       <div>게시물을 검색해세요</div>
       <InputWrapper>
         <SearchIcon />

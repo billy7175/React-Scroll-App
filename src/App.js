@@ -2,7 +2,7 @@ import { useState, useRef, useCallback } from "react";
 import useAPI from "./API/useAPI";
 import "./App.css";
 import { Switch, Route, Link } from "react-router-dom";
-import PostDetail from "./components/PostDetail";
+import PostDetail from './components/postDetail/PostDetail';
 import PostSearch from './components/postSearch/PostSearch';
 import Tabs from './components/tabs/Tabs';
 import PostList from './components/postList/PostList';
