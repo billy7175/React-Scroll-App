@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 export default function InputWrapper(props) {
-  return <Div>{props.children}</Div>;
+  return <Div onClick={props.onClick}>{props.children}</Div>;
 }
 
 const Div = styled.div`
@@ -13,4 +13,7 @@ const Div = styled.div`
   border: 1px solid #777;
   border-radius: 5px;
   padding: 1rem;
+  &:hover {
+    border-color: rgba(59, 130, 246, 1);
+  }
 `;
