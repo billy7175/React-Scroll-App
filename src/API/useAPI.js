@@ -17,29 +17,34 @@ export default function useAPI(type, pageNumber, query) {
     setLoading(true);
     setError(false);
     const fetchAPI = setTimeout(
-      axios({
-        method: "GET",
-        url: `https://recruit-api.yonple.com/recruit/712391/${type}-posts?`,
-        params: { page: pageNumber, search: query ? query : "" },
-        // params: { page: pageNumber, },
-      })
-        .then((res) => {
-          console.log("This is THEN THEN THEN");
-          console.log(res.data);
-          setContents((prev) => {
-            return [...prev, ...res.data];
-          });
-          // true when existing data
-          setHasMore(res.data.length > 0);
-          setLoading(false);
+      () =>
+        axios({
+          method: "GET",
+          url: `https://recruit-api.yonple.com/recruit/712391/${type}-posts?`,
+          params: { page: pageNumber, search: query ? query : "" },
         })
-        .catch((e) => {
-          console.log(`${e} 가 발생했습니다.`);
-          setError(true);
-          setLoading(false);
-        }),
-      10000
+          .then((res) => {
+            console.log("This is THEN THEN THEN");
+            console.log(res.data);
+            setContents((prev) => {
+              return [...prev, ...res.data];
+            });
+            // true when existing data
+            setHasMore(res.data.length > 0);
+            setLoading(false);
+          })
+          .catch((e) => {
+            console.log(`${e} 가 발생했습니다.`);
+            setError(true);
+            setLoading(false);
+          }),
+      150
     );
+    return () => {
+      console.log('Clear fetchAPI')
+      clearTimeout(fetchAPI);
+    }
   }, [type, pageNumber, query]);
+
   return { loading, error, contents, hasMore };
 }
