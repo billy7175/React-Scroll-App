@@ -5,8 +5,9 @@ import { Switch, Route, Link } from "react-router-dom";
 import PostDetail from "./components/PostDetail";
 import PostSearch from './components/postSearch/PostSearch';
 import Tabs from './components/tabs/Tabs';
+import PostList from './components/postList/PostList';
 
-{/* <i class="fas fa-search"></i> */}
+
 
 
 function App() {
@@ -18,24 +19,15 @@ function App() {
   const lastPostElement = useCallback(
     (ele) => {
       // if (loading) return;
-      console.log("observer", observer);
-      console.log("observer.current", observer.current)
+
       if (observer.current) observer.current.disconnect();
-      console.log("after disconnect", observer);
-      console.log("after disconncet", observer.current);
       observer.current = new IntersectionObserver((entries) => {
-        console.log("after instance", observer);
-        console.log("after instance", observer.current)
         if (entries[0].isIntersecting && hasMore) {
+          console.log("reached bottom.")
           setPageNumber((prev) => prev + 1);
-          console.log("reached");
-          console.log(contents);
         }
       });
-      if (ele){
-        console.log(ele);
-        observer.current.observe(ele)
-      };
+      if (ele) observer.current.observe(ele)
     },
     [hasMore]
   );
@@ -57,31 +49,7 @@ function App() {
         <Route path="/">
           <PostSearch value={query} setQuery={setQuery} />
           <Tabs onClickA={handleTabA} onClickB={handleTabB} type={type} />
-          <div className="postList">
-            {contents
-              .map((c, index) => {
-                // c = content
-                if (contents.length === index + 1) {
-                  return (
-                    <div className="post" key={c.id} ref={lastPostElement}>
-                      <span>{c.id}. </span>
-                      <span>{c.title}</span>
-                      <div>{c.content}</div>
-                    </div>
-                  );
-                } else {
-                  return (
-                    <div className="post" key={c.id}>
-                      <Link to={`/PostDetail/${c.id}`}>
-                        <span className="post-id">{c.id}. </span>
-                        <span className="post-title">{c.title}</span>
-                        <div class="post-content">{c.content}</div>
-                      </Link>
-                    </div>
-                  );
-                }
-              })}
-          </div>
+          <PostList contents={contents} lastPostElement={lastPostElement} />
           <div>{loading && "Loading Data..."}</div>
           <div>{error && "Error's happened"}</div>
         </Route>

@@ -11,9 +11,9 @@ a {
 }
 
 .postList {
-  border: 2px solid rgba(0, 0, 0, 0.1);
+  /* border: 2px solid rgba(0, 0, 0, 0.1);
   border-radius: 1rem;
-  padding:1rem;
+  padding:1rem; */
 }
 
 .postList > div {
@@ -29,16 +29,16 @@ a {
   font-weight: 500;
 }
 
-.postList .post-id {
+.post-id {
   color:#3b82f6;
   font-weight:500;
 }
 
-.postList .post-title {
+.post-title {
   font-weight:500;
 }
 
-.postList .post-content  {
+.post-content  {
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -58,35 +58,8 @@ a {
   padding:10px;
 }
 
-.inputDiv {
-  width:50%;
-  margin:auto;
-  display:flex;
-  align-items: center;; 
-  border:1px solid #777;
-  border-radius: 5px;
-  padding:1rem;
-}
-
-.tabs a {
-  display:inline-block;
-  padding:1rem;
-  font-weight: 500;
-  border-radius: 5px;
-  text-decoration: none;
- 
-}
-
-.tabs a:hover {
-  background-color:rgba(0, 0, 0, 0.1);
-  color:rgba(59,130,246,0.5);
-}
 
 
-.active {
-  color:#3b82f6;
-  /* color:#3bf2f6; */
-}
 
 .tab-a {
   color:#3b82f6;
@@ -94,9 +67,4 @@ a {
 
 .tab-b {
   color:#3b82f6;
-}
-
-
-.post:hover {
-  background:rgba(0,0,0,.1);
 }
