@@ -3,7 +3,8 @@ import useAPI from "./API/useAPI";
 import "./App.css";
 import { Switch, Route, Link } from "react-router-dom";
 import PostDetail from "./components/PostDetail";
-import {BsSearch} from 'react-icons/bs'
+import PostSearch from './components/postSearch/PostSearch';
+
 {/* <i class="fas fa-search"></i> */}
 
 
@@ -54,7 +55,8 @@ function App() {
           <PostDetail type={type} />
         </Route>
         <Route path="/">
-          <div className="postSearch">
+          <PostSearch value={query} setQuery={setQuery} />
+          {/* <div className="postSearch">
             <div>REACT-SCROLL-APP(개발 과제)</div>
             <div>게시물을 검색해세요</div>
             <div class="inputDiv">
@@ -70,7 +72,7 @@ function App() {
                 placeholder="검색어를 입력해주세요."
               />
             </div>
-          </div>
+          </div> */}
           <div className="tabs">
             <a onClick={handleTabA} className={type === "a" ? "active" : ""}>postA</a>
             <a onClick={handleTabB} className={type === "b" ? "active" : ""}>postB</a>

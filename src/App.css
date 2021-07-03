@@ -46,10 +46,6 @@ a {
   margin-top:0.25rem;
 }
 
-.postSearch {
-  width:100%;
-  text-align: center;
-}
 
 .postSearch div:first-child {
   font-size:40px;
@@ -62,12 +58,8 @@ a {
   padding:10px;
 }
 
-.postSearch div:last-child {
-  width:50%;
-  margin-bottom:2rem;
-}
-
 .inputDiv {
+  width:50%;
   margin:auto;
   display:flex;
   align-items: center;; 
@@ -76,14 +68,6 @@ a {
   padding:1rem;
 }
 
-.postSearch div:last-child input {
-  width:100%;
-  height:1rem;
-  border:none;
-}
-.postSearch div:last-child input:focus {
-  outline: none;
-}
 
 .tabs {
   font-size:20px;
