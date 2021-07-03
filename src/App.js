@@ -4,6 +4,7 @@ import "./App.css";
 import { Switch, Route, Link } from "react-router-dom";
 import PostDetail from "./components/PostDetail";
 import PostSearch from './components/postSearch/PostSearch';
+import Tabs from './components/tabs/Tabs';
 
 {/* <i class="fas fa-search"></i> */}
 
@@ -49,29 +50,15 @@ function App() {
 
   return (
     <div className="App">
-      <div className="common">I'm a common sense.</div>
       <Switch>
         <Route path="/PostDetail/:id">
           <PostDetail type={type} />
         </Route>
         <Route path="/">
           <PostSearch value={query} setQuery={setQuery} />
-          <div className="tabs">
-            <a onClick={handleTabA} className={type === "a" ? "active" : ""}>postA</a>
-            <a onClick={handleTabB} className={type === "b" ? "active" : ""}>postB</a>
-          </div>
+          <Tabs onClickA={handleTabA} onClickB={handleTabB} type={type} />
           <div className="postList">
-            
             {contents
-              // .filter((c) => {
-              //   if (query == "") {
-              //     return c;
-              //   } else if (
-              //     c.title.toLowerCase().includes(query.toLowerCase())
-              //   ) {
-              //     return c;
-              //   }
-              // })
               .map((c, index) => {
                 // c = content
                 if (contents.length === index + 1) {
