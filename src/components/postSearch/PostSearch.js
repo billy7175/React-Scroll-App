@@ -1,8 +1,9 @@
 import React from "react";
-import { BsSearch } from "react-icons/bs";
 import styled from "styled-components";
 import PostSearchInput from "./PostSearchInput";
 import InputWrapper from './InputWrapper';
+import SearchIcon from "./SearchIcon";
+// import { BsSearch } from "react-icons/bs";
 
 export default function PostSearch({ query, setQuery }) {
   return (
@@ -10,9 +11,7 @@ export default function PostSearch({ query, setQuery }) {
       <div>REACT-SCROLL-APP(개발 과제)</div>
       <div>게시물을 검색해세요</div>
       <InputWrapper>
-        <span>
-          <BsSearch />
-        </span>
+        <SearchIcon />
         <PostSearchInput value={query} setQuery={setQuery} />
       </InputWrapper>
     </Div>

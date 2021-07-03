@@ -56,23 +56,6 @@ function App() {
         </Route>
         <Route path="/">
           <PostSearch value={query} setQuery={setQuery} />
-          {/* <div className="postSearch">
-            <div>REACT-SCROLL-APP(개발 과제)</div>
-            <div>게시물을 검색해세요</div>
-            <div class="inputDiv">
-              <span><BsSearch /></span>
-              <input
-                onChange={(e) => {
-                  setQuery(e.target.value);
-                  console.log(e.target.value);
-                }}
-                value={query}
-                type="text"
-                
-                placeholder="검색어를 입력해주세요."
-              />
-            </div>
-          </div> */}
           <div className="tabs">
             <a onClick={handleTabA} className={type === "a" ? "active" : ""}>postA</a>
             <a onClick={handleTabB} className={type === "b" ? "active" : ""}>postB</a>
