@@ -1,11 +1,13 @@
 import Post from "./Post";
 import styled from "styled-components";
 
-export default function PostList({ contents, lastPostElement }) {
+export default function PostList({ contents, lastPostElement, loading, error }) {
   
   
   return (
     <Div>
+      {loading && <div>{loading && "Loading Data..."}</div>}
+      {error && <div>{error && "Error's happened"}</div>}
       {contents.map((c, index) => {
         if (contents.length === index + 1) {
           return <Post id={c.id} title={c.title} content={c.content} lastPostElement={lastPostElement}  />;

@@ -49,9 +49,7 @@ function App() {
         <Route path="/">
           <PostSearch value={query} setQuery={setQuery} />
           <Tabs onClickA={handleTabA} onClickB={handleTabB} type={type} />
-          <PostList contents={contents} lastPostElement={lastPostElement} />
-          <div>{loading && "Loading Data..."}</div>
-          <div>{error && "Error's happened"}</div>
+          <PostList contents={contents} lastPostElement={lastPostElement} loading={loading} error={error} />
         </Route>
       </Switch>
     </div>
