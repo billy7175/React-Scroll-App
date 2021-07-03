@@ -3,6 +3,9 @@ import useAPI from "./API/useAPI";
 import "./App.css";
 import { Switch, Route, Link } from "react-router-dom";
 import PostDetail from "./components/PostDetail";
+import {BsSearch} from 'react-icons/bs'
+{/* <i class="fas fa-search"></i> */}
+
 
 function App() {
   const [pageNumber, setPageNumber] = useState(0);
@@ -54,7 +57,8 @@ function App() {
           <div className="postSearch">
             <div>REACT-SCROLL-APP(개발 과제)</div>
             <div>게시물을 검색해세요</div>
-            <div>
+            <div class="inputDiv">
+              <span><BsSearch /></span>
               <input
                 onChange={(e) => {
                   setQuery(e.target.value);

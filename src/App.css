@@ -63,13 +63,26 @@ a {
 }
 
 .postSearch div:last-child {
-  width:100%;
+  width:50%;
   margin-bottom:2rem;
 }
 
+.inputDiv {
+  margin:auto;
+  display:flex;
+  align-items: center;; 
+  border:1px solid #777;
+  border-radius: 5px;
+  padding:1rem;
+}
+
 .postSearch div:last-child input {
-  width: 70%;
-  height:3rem;
+  width:100%;
+  height:1rem;
+  border:none;
+}
+.postSearch div:last-child input:focus {
+  outline: none;
 }
 
 .tabs {
