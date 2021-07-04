@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback } from "react";
+import { useState,useEffect, useRef, useCallback } from "react";
 import useAPI from "./API/useAPI";
 import "./App.css";
 import { Switch, Route, Link } from "react-router-dom";
@@ -16,15 +16,21 @@ function App() {
   const [type, setType] = useState("a");
   const { loading, error, contents, hasMore } = useAPI(type, pageNumber, query);
   const observer = useRef();
+  useEffect(() => {
+    setPageNumber(0)
+  }, [query])
   const lastPostElement = useCallback(
     (ele) => {
       // if (loading) return;
+      
 
       if (observer.current) observer.current.disconnect();
       observer.current = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting && hasMore) {
           console.log("reached bottom.")
+          // setPageNumber((prev) => prev !== 0 ? 0 : 0);
           setPageNumber((prev) => prev + 1);
+        
         }
       });
       if (ele) observer.current.observe(ele)
