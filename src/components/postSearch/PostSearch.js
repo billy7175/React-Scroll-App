@@ -6,17 +6,19 @@ import SearchIcon from "./SearchIcon";
 // import { BsSearch } from "react-icons/bs";
 
 export default function PostSearch({ query, setQuery }) {
+  const inputWrapperObserver = useRef();
   const inputObserver = useRef();
   function inputFocus() {
-    console.log("Clicked");
-    console.log(inputObserver);
     inputObserver.current.focus();
+    inputWrapperObserver.current.style.borderColor = "rgba(59, 130, 246, 1)";
+    
+    
   }
   return (
     <Div className="postSearch">
       <h1>REACT-SCROLL-APP(개발 과제)</h1>
       <SubTitle>게시물을 검색해세요</SubTitle>
-      <InputWrapper onClick={inputFocus}>
+      <InputWrapper onClick={inputFocus} inputWrapperObserver={inputWrapperObserver}>
         <SearchIcon />
         <PostSearchInput
           value={query}

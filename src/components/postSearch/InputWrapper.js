@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
-export default function InputWrapper(props) {
-  return <Div onClick={props.onClick}>{props.children}</Div>;
+export default function InputWrapper({onClick, inputWrapperObserver, children}) {
+  return <Div onClick={onClick} ref={inputWrapperObserver}>{children}</Div>;
 }
 
 const Div = styled.div`
@@ -16,4 +16,5 @@ const Div = styled.div`
   &:hover {
     border-color: rgba(59, 130, 246, 1);
   }
+ 
 `;

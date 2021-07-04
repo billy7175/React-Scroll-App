@@ -12,3 +12,16 @@ code {
     monospace;
 }
 
+a {
+  color:inherit;
+  text-decoration: none;
+}
+
+.tab-a {
+  color:#3b82f6;
+}
+
+.tab-b {
+  color:#3b82f6;
+}
+

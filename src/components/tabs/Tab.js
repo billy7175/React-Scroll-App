@@ -7,7 +7,7 @@ export default function Tab({ onClick, type, text }) {
   return (
     <A
       onClick={onClick}
-      // className={type === "a" ? "tab-a" : type === "b" ? "tab-b" : ""}
+      className={type === "a" ? "tab-a" : type === "b" ? "tab-b" : ""}
     >
       {text}
     </A>

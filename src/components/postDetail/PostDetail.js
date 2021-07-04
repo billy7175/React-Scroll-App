@@ -6,7 +6,7 @@ import styled from "styled-components";
 export default function PostDetail(props) {
   const { postDetail } = useGetDetailAPI(props.type);
   const { title, content } = postDetail;
-
+  
   return (
     <div>
       <DetailWrapper>
