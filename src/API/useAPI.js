@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-// export default function postAPI(pageNumber) {
+
 export default function useAPI(type, pageNumber, query) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -24,10 +24,6 @@ export default function useAPI(type, pageNumber, query) {
           params: { page: pageNumber, search: query },
         })
           .then((res) => {
-            console.log("This is THEN THEN THEN");
-            console.log(`https://recruit-api.yonple.com/recruit/712391/${type}-posts?page=${pageNumber}&search=${query}`)
-            console.log(res);
-            console.log(res.data);
             setContents((prev) => {
               return [...prev, ...res.data];
             });
@@ -43,7 +39,7 @@ export default function useAPI(type, pageNumber, query) {
       150
     );
     return () => {
-      console.log('Clear fetchAPI')
+      //Clear fetchAPI
       clearTimeout(fetchAPI);
     }
   }, [type, pageNumber, query]);

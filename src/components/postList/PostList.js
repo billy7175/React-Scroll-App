@@ -8,14 +8,14 @@ export default function PostList({ contents, lastPostElement, loading, error,has
     <Div>
       {loading && <div>Loading Data...</div>}
       {error && <div>Error's happened</div>}
-      {!loading && !hasMore && <div>No Data Found</div>}
       {contents.map((c, index) => {
         if (contents.length === index + 1) {
-          return <Post id={c.id} title={c.title} content={c.content} lastPostElement={lastPostElement}  />;
+          return <Post key={c.id} id={c.id} title={c.title} content={c.content} lastPostElement={lastPostElement}  />;
         } else {
-          return <Post id={c.id} title={c.title} content={c.content}  />;
+          return <Post key={c.id} id={c.id} title={c.title} content={c.content}  />;
         }
       })}
+      {!loading && contents.length === 0 && <div>No Data Found</div>}
     </Div>
   );
 }

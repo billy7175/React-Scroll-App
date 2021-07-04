@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 export default function Tab({ onClick, type, text }) {
 
-  const color = type === "a" ? "background:red" : "background:red"
   return (
     <A
       onClick={onClick}

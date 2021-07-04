@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-export default function Post({ key, id, title, content, lastPostElement }) {
+export default function Post({  id, title, content, lastPostElement }) {
   return (
-    <Div ref={lastPostElement ? lastPostElement : null}>
+    <Div key={id} ref={lastPostElement ? lastPostElement : null}>
       <Link to={`/PostDetail/${id}`}>
         <Id className="post-id">{id}. </Id>
         <Title className="post-title">{title}</Title>

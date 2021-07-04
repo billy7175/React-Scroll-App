@@ -11,10 +11,8 @@ export default function useGetDetailAPI(type = "a") {
       method:'GET',
       url:`https://recruit-api.yonple.com/recruit/712391/${type}-posts/${id}`
     }).then(res => {
-      console.log('I am postDetail API.');
-      console.log(res.data);
       setPostDetail(res.data);
     })
-  }, [id])
+  }, [id, type])
   return { postDetail };
 }

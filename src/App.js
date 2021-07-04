@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import useRefList from "./Utils/useRefList";
-import styled from 'styled-components';
+import useRefList from "./utils/useRefList";
+import styled from "styled-components";
 import useAPI from "./API/useAPI";
 import { Switch, Route } from "react-router-dom";
 import PostDetail from "./components/postDetail/PostDetail";
@@ -17,11 +17,15 @@ function App() {
   useEffect(() => {
     setPageNumber(0);
   }, [query]);
-  
+
   // Look for lastElement of API Data
-  const { lastPostElement} = useRefList(setPageNumber, hasMore);
-  
-  
+  const {
+    lastPostElement,
+    inputWrapperObserver,
+    inputObserver,
+    inputFocus,
+    removeInputFocus,
+  } = useRefList(setPageNumber, hasMore);
 
   function handleTabA() {
     setType("a");
@@ -38,7 +42,14 @@ function App() {
           <PostDetail type={type} />
         </Route>
         <Route path="/">
-          <PostSearch value={query} setQuery={setQuery} />
+          <PostSearch
+            value={query}
+            setQuery={setQuery}
+            inputWrapperObserver={inputWrapperObserver}
+            inputObserver={inputObserver}
+            onClick={inputFocus}
+            onBlur={removeInputFocus}
+          />
           <Tabs onClickA={handleTabA} onClickB={handleTabB} type={type} />
           <PostList
             contents={contents}

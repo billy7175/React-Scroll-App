@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
-export default function InputWrapper({onClick, inputWrapperObserver, children}) {
-  return <Div onClick={onClick} ref={inputWrapperObserver}>{children}</Div>;
+export default function InputWrapper({onClick, inputWrapperObserver, children, onBlur}) {
+  return <Div onBlur={onBlur} onClick={onClick} ref={inputWrapperObserver}>{children}</Div>;
 }
 
 const Div = styled.div`

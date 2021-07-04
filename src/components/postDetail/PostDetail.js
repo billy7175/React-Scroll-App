@@ -14,7 +14,7 @@ export default function PostDetail(props) {
         <DetailContent>{content ? content : "NO DATA"}</DetailContent>
       </DetailWrapper>
       <Link to="/">
-        <A>뒤로가기</A>
+        <Span>뒤로가기</Span>
       </Link>
     </div>
   );
@@ -34,7 +34,7 @@ const DetailTitled = styled.h2`
 const DetailContent = styled.div`
 `;
 
-const A = styled.a`
+const Span = styled.span`
   display: inline-block;
   padding: 0.75rem 2rem;
   color: #fff;
