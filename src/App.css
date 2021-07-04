@@ -10,11 +10,7 @@ a {
   padding: 3rem;
 }
 
-.postList {
-  /* border: 2px solid rgba(0, 0, 0, 0.1);
-  border-radius: 1rem;
-  padding:1rem; */
-}
+
 
 .postList > div {
   padding: 1.25rem;

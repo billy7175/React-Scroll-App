@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import GetDetailAPI from "../../API/GetDetailAPI";
+import useGetDetailAPI from "../../API/useGetDetailAPI";
 import styled from "styled-components";
 
 export default function PostDetail(props) {
-  const { postDetail } = GetDetailAPI(props.type);
+  const { postDetail } = useGetDetailAPI(props.type);
   const { title, content } = postDetail;
 
   return (

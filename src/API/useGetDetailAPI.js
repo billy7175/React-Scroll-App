@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 
 
-export default function GetDetailAPI(type = "a") {
+export default function useGetDetailAPI(type = "a") {
   const [postDetail, setPostDetail] = useState({});
   const id = useParams().id;
   console.log(id);
@@ -16,7 +16,6 @@ export default function GetDetailAPI(type = "a") {
       console.log(res.data);
       setPostDetail(res.data);
     })
-    // setInterval
   }, [id])
   return { postDetail };
 }
