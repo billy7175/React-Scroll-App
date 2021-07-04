@@ -6,7 +6,6 @@ export default function PostSearchInput({ query, setQuery, inputObserver }) {
     <Input
       onChange={(e) => {
         setQuery(e.target.value);
-        console.log(e.target.value);
       }}
       value={query}
       type="text"
