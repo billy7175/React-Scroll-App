@@ -31,13 +31,14 @@ const DetailTitled = styled.h2`
   margin-bottom: 1rem;
 `;
 
-const DetailContent = styled.div``;
+const DetailContent = styled.div`
+`;
 
 const A = styled.a`
-  display:inline-block;
-  padding: 0.75rem 2rem;;
-  color:#fff;
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  color: #fff;
   background: #3b82f6;
-  border-radius:5px;
-  margin-top:1rem;
+  border-radius: 5px;
+  margin-top: 1rem;
 `;

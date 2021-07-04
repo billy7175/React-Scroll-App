@@ -1,14 +1,12 @@
-import { useState,useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
+import styled from 'styled-components';
 import useAPI from "./API/useAPI";
+import { Switch, Route } from "react-router-dom";
+import PostDetail from "./components/postDetail/PostDetail";
+import PostSearch from "./components/postSearch/PostSearch";
+import Tabs from "./components/tabs/Tabs";
+import PostList from "./components/postList/PostList";
 import "./App.css";
-import { Switch, Route, Link } from "react-router-dom";
-import PostDetail from './components/postDetail/PostDetail';
-import PostSearch from './components/postSearch/PostSearch';
-import Tabs from './components/tabs/Tabs';
-import PostList from './components/postList/PostList';
-
-
-
 
 function App() {
   const [pageNumber, setPageNumber] = useState(0);
@@ -17,37 +15,32 @@ function App() {
   const { loading, error, contents, hasMore } = useAPI(type, pageNumber, query);
   const observer = useRef();
   useEffect(() => {
-    setPageNumber(0)
-  }, [query])
+    setPageNumber(0);
+  }, [query]);
   const lastPostElement = useCallback(
     (ele) => {
-      // if (loading) return;
-      
-
       if (observer.current) observer.current.disconnect();
       observer.current = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting && hasMore) {
-          console.log("reached bottom.")
-          // setPageNumber((prev) => prev !== 0 ? 0 : 0);
+          console.log("reached bottom.");
           setPageNumber((prev) => prev + 1);
-        
         }
       });
-      if (ele) observer.current.observe(ele)
+      if (ele) observer.current.observe(ele);
     },
     [hasMore]
   );
 
-  function handleTabA(){
+  function handleTabA() {
     setType("a");
   }
 
-  function handleTabB(){
+  function handleTabB() {
     setType("b");
   }
 
   return (
-    <div className="App">
+    <Div>
       <Switch>
         <Route path="/PostDetail/:id">
           <PostDetail type={type} />
@@ -55,11 +48,23 @@ function App() {
         <Route path="/">
           <PostSearch value={query} setQuery={setQuery} />
           <Tabs onClickA={handleTabA} onClickB={handleTabB} type={type} />
-          <PostList contents={contents} lastPostElement={lastPostElement} loading={loading} error={error} />
+          <PostList
+            contents={contents}
+            lastPostElement={lastPostElement}
+            loading={loading}
+            error={error}
+          />
         </Route>
       </Switch>
-    </div>
+    </Div>
   );
 }
 
 export default App;
+
+const Div = styled.div`
+  width: 1000px;
+  max-width: 100%;
+  margin: auto;
+  padding: 3rem;
+`;

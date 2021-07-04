@@ -2,10 +2,12 @@ import React from "react";
 import styled from "styled-components";
 
 export default function Tab({ onClick, type, text }) {
+
+  const color = type === "a" ? "background:red" : "background:red"
   return (
     <A
       onClick={onClick}
-      className={type === "a" ? "tab-a" : type === "b" ? "tab-b" : ""}
+      // className={type === "a" ? "tab-a" : type === "b" ? "tab-b" : ""}
     >
       {text}
     </A>
@@ -22,4 +24,5 @@ const A = styled.a`
     background-color: rgba(0, 0, 0, 0.1);
     color: rgba(59, 130, 246, 0.5);
   }
+
 `;
