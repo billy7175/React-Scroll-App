@@ -13,7 +13,7 @@ export default function PostSearch({
 }) {
   return (
     <Div className="postSearch">
-      <h1>REACT-SCROLL-APP(개발 과제)</h1>
+      <h1>REACT-SCROLL-APP</h1>
       <SubTitle>게시물을 검색할 수 있습니다.</SubTitle>
       <InputWrapper
         onClick={onClick}
